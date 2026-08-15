@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Full Subtractor - Simulation Output</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        header {
+            background: #24292f;
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+        }
+
+        .card {
+            background: white;
+            margin-top: 25px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            color: #0969da;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th {
+            background: #0969da;
+            color: white;
+            padding: 12px;
+        }
+
+        td {
+            text-align: center;
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        tr:nth-child(even) {
+            background: #f6f8fa;
+        }
+
+        .success {
+            background: #dafbe1;
+            color: #116329;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .terminal {
+            background: #161b22;
+            color: #7ee787;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: Consolas, monospace;
+            overflow-x: auto;
+            white-space: pre;
+        }
+
+        .formula {
+            background: #f6f8fa;
+            padding: 15px;
+            border-left: 5px solid #0969da;
+            margin: 10px 0;
+            font-family: monospace;
+            font-size: 18px;
+        }
+
+        .waveform {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        svg {
+            min-width: 750px;
+            width: 100%;
+            height: 420px;
+            background: #fff;
+            border: 1px solid #ddd;
+        }
+
+        .signal {
+            stroke: #0969da;
+            stroke-width: 3;
+            fill: none;
+        }
+
+        .grid {
+            stroke: #ddd;
+            stroke-width: 1;
+        }
+
+        .label {
+            font-size: 14px;
+            fill: #222;
+            font-weight: bold;
+        }
+
+        .time {
+            font-size: 12px;
+            fill: #555;
+        }
+
+        footer {
+            text-align: center;
+            margin: 30px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Full Subtractor</h1>
+        <p>Verilog HDL Simulation Output</p>
+    </header>
+
+    <div class="card">
+        <h2>Simulation Status</h2>
+
+        <div class="success">
+            ✓ Simulation completed successfully
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Boolean Expressions</h2>
+
+        <div class="formula">
+            Difference = A XOR B XOR Bin
+        </div>
+
+        <div class="formula">
+            Bout = (NOT A AND B) OR (NOT A AND Bin) OR (B AND Bin)
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Truth Table</h2>
+
+        <table>
+            <tr>
+                <th>Time (ns)</th>
+                <th>A</th>
+                <th>B</th>
+                <th>Bin</th>
+                <th>Difference</th>
+                <th>Bout</th>
+            </tr>
+
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+
+            <tr>
+                <td>10</td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+
+            <tr>
+                <td>20</td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+
+            <tr>
+                <td>30</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+            </tr>
+
+            <tr>
+                <td>40</td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+            </tr>
+
+            <tr>
+                <td>50</td>
+                <td>1</td>
+                <td>0</td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+
+            <tr>
+                <td>60</td>
+                <td>1</td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+
+            <tr>
+                <td>70</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Console Simulation Output</h2>
+
+        <div class="terminal">============================================
+        FULL SUBTRACTOR SIMULATION
+============================================
+Time   A B Bin | Difference Bout
+--------------------------------------------
+0      0 0  0  |     0        0
+10     0 0  1  |     1        1
+20     0 1  0  |     1        1
+30     0 1  1  |     0        1
+40     1 0  0  |     1        0
+50     1 0  1  |     0        0
+60     1 1  0  |     0        0
+70     1 1  1  |     1        1
+--------------------------------------------
+Simulation completed successfully.</div>
+    </div>
+
+    <div class="card">
+        <h2>Waveform</h2>
+
+        <div class="waveform">
+
+            <svg viewBox="0 0 900 420"
+                 xmlns="http://www.w3.org/2000/svg">
+
+                <!-- Vertical grid -->
+                <line class="grid" x1="130" y1="40" x2="130" y2="360"/>
+                <line class="grid" x1="225" y1="40" x2="225" y2="360"/>
+                <line class="grid" x1="320" y1="40" x2="320" y2="360"/>
+                <line class="grid" x1="415" y1="40" x2="415" y2="360"/>
+                <line class="grid" x1="510" y1="40" x2="510" y2="360"/>
+                <line class="grid" x1="605" y1="40" x2="605" y2="360"/>
+                <line class="grid" x1="700" y1="40" x2="700" y2="360"/>
+                <line class="grid" x1="795" y1="40" x2="795" y2="360"/>
+
+                <!-- Signal labels -->
+                <text class="label" x="25" y="80">A</text>
+                <text class="label" x="25" y="145">B</text>
+                <text class="label" x="25" y="210">Bin</text>
+                <text class="label" x="25" y="275">Difference</text>
+                <text class="label" x="25" y="340">Bout</text>
+
+                <!-- A: 0 0 0 0 1 1 1 1 -->
+                <path class="signal"
+                    d="M55 90
+                       H510
+                       V60
+                       H795"/>
+
+                <!-- B: 0 0 1 1 0 0 1 1 -->
+                <path class="signal"
+                    d="M55 155
+                       H320
+                       V125
+                       H510
+                       V155
+                       H700
+                       V125
+                       H795"/>
+
+                <!-- Bin: 0 1 0 1 0 1 0 1 -->
+                <path class="signal"
+                    d="M55 220
+                       H130
+                       V190
+                       H225
+                       V220
+                       H320
+                       V190
+                       H415
+                       V220
+                       H510
+                       V190
+                       H605
+                       V220
+                       H700
+                       V190
+                       H795"/>
+
+                <!-- Difference: 0 1 1 0 1 0 0 1 -->
+                <path class="signal"
+                    d="M55 285
+                       H130
+                       V255
+                       H320
+                       V285
+                       H415
+                       V255
+                       H510
+                       V285
+                       H605
+                       V255
+                       H795"/>
+
+                <!-- Borrow: 0 1 1 1 0 0 0 1 -->
+                <path class="signal"
+                    d="M55 350
+                       H130
+                       V320
+                       H415
+                       H510
+                       V350
+                       H795
+                       V320
+                       H795"/>
+
+                <!-- Time labels -->
+                <text class="time" x="120" y="395">0 ns</text>
+                <text class="time" x="210" y="395">10</text>
+                <text class="time" x="305" y="395">20</text>
+                <text class="time" x="400" y="395">30</text>
+                <text class="time" x="495" y="395">40</text>
+                <text class="time" x="590" y="395">50</text>
+                <text class="time" x="685" y="395">60</text>
+                <text class="time" x="780" y="395">70</text>
+
+            </svg>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Result</h2>
+
+        <p>
+            The Full Subtractor was successfully simulated for all eight
+            possible combinations of A, B, and Bin.
+        </p>
+
+        <p>
+            The Difference and Borrow outputs match the expected truth table,
+            confirming that the Verilog implementation works correctly.
+        </p>
+    </div>
+
+</div>
+
+<footer>
+    Full Subtractor Project | Verilog HDL
+</footer>
+
+</body>
+</html>
